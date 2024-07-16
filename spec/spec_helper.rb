@@ -7,12 +7,16 @@
 ENV["RAILS_ENV"] ||= "test"
 
 require File.join(File.dirname(__FILE__), "..", "config", "environment")
-require Rails.root.join("spec", "helper_methods")
+require Rails.root.join("spec/helper_methods")
 require "rspec/rails"
 require "webmock/rspec"
 require "sidekiq/testing"
 require "shoulda/matchers"
 require "diaspora_federation/schemas"
+require "simplecov"
+
+puts "Running with SimpleCov"
+SimpleCov.start "rails"
 
 include HelperMethods
 
@@ -88,7 +92,7 @@ support_files.each {|f| require f }
 require fixture_builder_file
 
 RSpec.configure do |config|
-  config.fixture_path = Rails.root.join("spec", "fixtures")
+  config.fixture_path = Rails.root.join("spec/fixtures")
   config.global_fixtures = :all
 
   config.include Devise::Test::ControllerHelpers, type: :controller

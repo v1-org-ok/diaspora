@@ -75,7 +75,7 @@ gem "sprockets-rails",        "3.4.2"
 group :mysql, optional: true do
   gem "mysql2", "0.5.6"
 end
-group :postgresql, optional: true do
+group :postgresql do
   gem "pg",     "1.5.6"
 end
 
@@ -185,7 +185,7 @@ group :production do # we don"t install these on travis to speed up test runs
   # Analytics
 
   gem "rack-google-analytics", "1.2.0"
-  gem "rack-piwik",            "0.3.0",  require: "rack/piwik"
+  gem "rack-piwik",            "0.3.0", require: "rack/piwik"
 
   # Process management
 

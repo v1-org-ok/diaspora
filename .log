@@ -1,0 +1,9 @@
+rbenv local 3.3.0
+bundle install
+sudo apt-get install libidn11-dev
+bundle install
+docker run --name test-postgres -e POSTGRES_DB=diaspora_test -e POSTGRES_USER=postgres -e POSTGRES_PASSWORD=postgres -p 5432:5432 -d postgres:latest
+RAILS_ENV=test bundle exec rails db:create --trace
+RAILS_ENV=test bundle exec rails db:migrate
+bundle exec rake assets:precompile
+RAILS_ENV=test bundle exec rspec

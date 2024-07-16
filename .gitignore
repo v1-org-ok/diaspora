@@ -18,7 +18,6 @@ config/schedule.yml
 log/
 spec/fixtures/*.y*ml
 spec/fixtures/*.fixture.*
-coverage/
 xml_locales/
 public/404.html
 public/422.html
